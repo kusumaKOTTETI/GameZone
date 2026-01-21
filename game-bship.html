@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Battleship</title>
+    <link rel="stylesheet" href="CSS/game-bship.css">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+    <div id="game-page-battleship" class="screen active">
+        <header class="game-header">
+            <h1 class="game-title">⚓ Battleship</h1>
+            <a href="dashboard.html" class="btn-primary btn-small">← Back to Dashboard</a>
+        </header>
+
+        <main class="game-layout">
+            <section class="game-container battleship-container">
+                <h2 class="choice-prompt">Deploy Your Fleet</h2>
+
+                <div id="current-phase" class="phase-indicator">Placement Phase</div>
+
+                <div class="grids-wrapper">
+                    <div class="grid-section">
+                        <h3>You</h3>
+                        <div id="player-grid" class="battle-grid"></div>
+                    </div>
+
+                    <div class="grid-section">
+                        <h3>Opponent</h3>
+                        <div id="opponent-grid" class="battle-grid"></div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="rotate-btn" class="btn-primary">Rotate Ship</button>
+                    <button id="start-game-btn" class="btn-primary btn-success" disabled>Start Battle</button>
+                    <button id="reset-btn" class="btn-primary btn-danger">Reset</button>
+                </div>
+            </section>
+
+            <aside class="match-info-panel">
+                <h3>Match Information</h3>
+
+                <p><strong>Current Turn:</strong> <span id="turn-indicator">Waiting...</span></p>
+
+                <div class="score-display">
+                    <div class="player-score">
+                        <span id="player-one" class="player-name">Player (You)</span>
+                        <span id="score-player" class="score-value player-color">0</span>
+                    </div>
+                    <div class="player-score">
+                        <span id="player-two" class="player-name">Opponent</span>
+                        <span id="score-opponent" class="score-value opponent-color">0</span>
+                    </div>
+                </div>
+
+                <div id="match-log" class="match-log">
+                    <p class="log-entry log-system">Game initialized. Place your ships!</p>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script src="JS/game-bship.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Tic Tac Toe</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <link rel="stylesheet" href="CSS/game-ttt.css">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+
+<body>
+    <div id="game-page-ttt" class="screen active">
+
+        <header class="game-header">
+            <h1 class="game-title">Tic Tac Toe</h1>
+            <a href="dashboard.html" class="btn-primary btn-small">← Back to Dashboard</a>
+        </header>
+
+        <main class="game-layout">
+
+            <section class="game-container">
+
+                <div class="game-status-bar">
+                    <p id="game-status">Current Player: <span id="current-player-indicator">X</span></p>
+                </div>
+
+                <div id="ttt-board" class="ttt-board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+
+                <button id="restart-game-btn" class="btn-primary btn-block">Restart Game</button>
+                <div id="game-message" class="game-message" style="display:none;"></div>
+            </section>
+
+            <aside class="match-info-panel">
+                <h3>Match Score</h3>
+                <div class="score-display">
+                    <div class="player-score">
+                        <span id="player1-name" class="player-name"></span>
+                        <span id="score-player1" class="score-value">0</span>
+                    </div>
+                    <div class="player-score">
+                        <span id="player2-name" class="player-name"></span>
+                        <span id="score-player2" class="score-value">0</span>
+                    </div>
+                </div>
+
+
+                <h3 class="rules-heading">How to Play</h3>
+                <ul class="rules-list">
+                    <li>Be the first to get three X's or O's in a row (horizontal, vertical, or diagonal).</li>
+                    <li>Players take turns placing their mark in an empty cell.</li>
+                    <li>If all cells are filled and no one wins, the game is a draw.</li>
+                </ul>
+            </aside>
+        </main>
+    </div>
+    <!-- Restart Confirmation Popup -->
+    <div id="restart-popup" class="popup-overlay">
+        <div class="popup-content">
+            <p id="popup-message">Are you sure you want to restart?</p>
+            <div class="popup-buttons">
+                <button id="popup-yes" class="btn-primary">Yes</button>
+                <button id="popup-no" class="btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/game-ttt.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Rock Paper Scissors</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <link rel="stylesheet" href="CSS/game-rps.css">
+    <link rel="stylesheet" href="CSS/index.css"> 
+</head>
+<body>
+    <div id="game-page-rps" class="screen active">
+
+        <!-- Header -->
+        <header class="game-header">
+            <h1 class="game-title">Rock Paper Scissors</h1>
+            <a href="dashboard.html" class="btn-primary btn-small">← Back to Dashboard</a>
+        </header>
+
+        <!-- Main Layout -->
+        <main class="game-layout">
+
+            <!-- Game Section -->
+            <section class="game-container">
+                
+                <h2 class="choice-prompt">Make Your Move</h2>
+
+                <!-- Player Choice Buttons -->
+                <div class="choice-buttons">
+                    <button class="choice-btn" data-choice="rock">✊ Rock</button>
+                    <button class="choice-btn" data-choice="paper">✋ Paper</button>
+                    <button class="choice-btn" data-choice="scissors">✌️ Scissors</button>
+                </div>
+
+                <!-- Round Display -->
+                <div class="results-display">
+                    <div class="player-move-area">
+                        <p class="move-label">Your Choice:</p>
+                        <p id="player-choice" class="move-result">?</p>
+                    </div>
+                    
+                    <div class="vs-divider">VS</div>
+                    
+                    <div class="computer-move-area">
+                        <p class="move-label">Opponent's Choice:</p>
+                        <p id="computer-choice" class="move-result">?</p>
+                    </div>
+                </div>
+
+                <!-- Round Result Summary -->
+                <div class="round-result-container">
+                    <h3>Round Result</h3>
+                    <div class="round-scoreboard">
+                        <div class="round-score">
+                            <span class="round-player">You:</span>
+                            <span id="round-player-score" class="score-value">0</span>
+                        </div>
+                        <div class="round-score">
+                            <span class="round-opponent">Opponent:</span>
+                            <span id="round-opponent-score" class="score-value">0</span>
+                        </div>
+                    </div>
+                    <p id="round-winner-message" class="round-message">No rounds played yet.</p>
+                </div>
+
+                <!-- Game Message -->
+                <div id="game-message" class="game-message">
+                    Click a button to start the game!
+                </div>
+
+                <!-- Reset Button -->
+                <button id="restart-game-btn" class="btn-primary btn-block">Reset Round</button>
+            </section>
+
+            <!-- Match Info Sidebar -->
+            <aside class="match-info-panel">
+                <h3>Match Scoreboard (First to 5 Wins)</h3>
+
+                <div class="score-display">
+                    <div class="player-score">
+                        <span id="player-one" class="player-name">Player (You)</span>
+                        <span id="score-player" class="score-value player-color">0</span>
+                    </div>
+                    <div class="player-score">
+                        <span id="player-two" class="player-name">Opponent</span>
+                        <span id="score-opponent" class="score-value opponent-color">0</span>
+                    </div>
+                </div>
+
+                <h3 class="rules-heading">How to Win</h3>
+                <ul class="rules-list">
+                    <li><strong>Rock (✊)</strong> beats <strong>Scissors (✌️)</strong></li>
+                    <li><strong>Scissors (✌️)</strong> beats <strong>Paper (✋)</strong></li>
+                    <li><strong>Paper (✋)</strong> beats <strong>Rock (✊)</strong></li>
+                    <li>First player to reach 5 points wins the match!</li>
+                </ul>
+            </aside>
+        </main>
+    </div>
+     <!-- Restart Confirmation Popup -->
+    <div id="restart-popup" class="popup-overlay">
+        <div class="popup-content">
+            <p id="popup-message">Are you sure you want to restart this round?</p>
+            <div class="popup-buttons">
+                <button id="popup-yes" class="btn-primary">Yes</button>
+                <button id="popup-no" class="btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/game-rps.js"></script>
+</body>
+</html>

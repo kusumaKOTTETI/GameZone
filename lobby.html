@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Game Lobby</title>
+    <link rel="stylesheet" href="CSS/lobby.css">
+    <link rel="stylesheet" href="CSS/index.css"> 
+</head>
+<body>
+    <div id="lobby-page" class="screen active">
+        <header class="lobby-header">
+            <h2 id="lobby-title">Lobby for: Tic Tac Toe</h2>
+            <button id="back-to-dashboard-btn" class="btn-secondary">
+                ← Back to Games
+            </button>
+        </header>
+
+        <main class="lobby-container">
+            <section class="lobby-card create-room">
+                <h3>Create New Room</h3>
+                <p>Start a new match and share the code with a friend.</p>
+                <button id="create-room-btn" class="btn-primary btn-large">
+                    Generate Room Code
+                </button>
+                <div id="generated-code" class="room-code-display" style="display:none;">
+                    Your Code: <span id="display-code"></span>
+                    <button class="btn-copy" id="copy-code-btn">Copy</button>
+                </div>
+            </section>
+
+            <section class="lobby-card join-room">
+                <h3>Join Room</h3>
+                <p>Enter the code provided by your friend.</p>
+                <form id="join-room-form" class="join-form">
+                    <input type="text" id="room-code-input" placeholder="Enter 6-digit code..." maxlength="6" required>
+                    <button type="submit" class="btn-primary btn-large">Join Game</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script src="JS/lobby.js"></script>
+</body>
+</html>
